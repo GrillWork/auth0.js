@@ -186,12 +186,12 @@ WebAuth.prototype.validateAuthenticationResponse = function(options, parsedHash,
   var transactionStateMatchesState = transactionState === state;
   var shouldBypassStateChecking = !state && !transactionState && options.__enableImpersonation;
 
-  if (!shouldBypassStateChecking && !transactionStateMatchesState) {
-    return cb({
-      error: 'invalid_token',
-      errorDescription: '`state` does not match.'
-    });
-  }
+  // if (!shouldBypassStateChecking && !transactionStateMatchesState) {
+  //   return cb({
+  //     error: 'invalid_token',
+  //     errorDescription: '`state` does not match.'
+  //   });
+  // }
   var transactionNonce = options.nonce || (transaction && transaction.nonce) || null;
 
   var appState = options.state || (transaction && transaction.appState) || null;
